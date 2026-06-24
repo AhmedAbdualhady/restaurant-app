@@ -1,0 +1,225 @@
+
+.menu-container {
+padding: 30px;
+}
+
+.menu-container h1 {
+text-align: center;
+margin-bottom: 20px;
+}
+
+.search-bar {
+width: 450px;
+max-width: 500px;
+display: block;
+margin: auto;
+padding: 12px;
+border: 1px solid #ddd;
+border-radius: 10px;
+transition: .3s;
+flex: 1;
+}
+
+.search-bar:focus {
+outline: none;
+
+border-color: #ff4f8b;
+
+transform: scale(1.02);
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 550px;
+  margin: auto;
+}
+
+.food-grid {
+display: grid;
+
+grid-template-columns:
+repeat(auto-fit, minmax(220px, 1fr));
+
+gap: 20px;
+
+margin-top: 30px;
+}
+
+.food-card {
+background: white;
+
+padding: 20px;
+
+border-radius: 20px;
+
+text-align: center;
+
+box-shadow: 0 4px 15px rgba(0,0,0,.08);
+
+
+transition: .3s;
+
+animation: fadeIn .5s ease;
+
+}
+
+.food-card:hover {
+transform: translateY(-10px) scale(1.03);
+}
+
+.food-card h3 {
+margin-bottom: 10px;
+}
+
+.food-card p {
+color: #ff4f8b;
+font-weight: bold;
+}
+
+.food-card button {
+margin-top: 10px;
+
+background: #ff4f8b;
+color: white;
+
+
+border: none;
+
+padding: 10px 15px;
+
+border-radius: 10px;
+
+cursor: pointer;
+transition: 0.3s;
+}
+
+
+.food-card button:hover {
+transform: scale(1.08);
+}
+
+
+.menu-categories {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin-top: 20px;
+flex-wrap: wrap;
+}
+
+.menu-categories button {
+background: #ff4f8b;
+color: white;
+
+border: none;
+padding: 10px 15px;
+
+border-radius: 20px;
+cursor: pointer;
+
+transition: 0.3s;
+}
+
+
+.menu-categories button:hover {
+transform: scale(1.05);
+}
+
+.active-category {
+background: #ff4f8b !important;
+color: white !important;
+
+transform: scale(1.1);
+
+box-shadow: 0 5px 15px rgba(255,79,139,.4);
+}
+
+@keyframes fadeIn {
+from {
+opacity: 0;
+transform: translateY(20px);
+  }
+
+to {
+opacity: 1;
+transform: translateY(0);
+  }
+}
+
+
+.food-image {
+width: 100%;
+height: 150px;
+
+object-fit: cover;
+
+border-radius: 15px;
+
+margin-bottom: 10px;
+}
+
+.no-food {
+text-align: center;
+
+color: #ff4f8b;
+
+margin-top: 40px;
+}
+
+
+.clear-search {
+border: none;
+
+background: #ff4f8b;
+
+color: white;
+
+padding: 10px;
+
+border-radius: 10px;
+
+cursor: pointer;
+
+margin-left: 10px;
+}
+
+.old-price {
+text-decoration: line-through;
+color: gray;
+}
+
+.success-message {
+position: fixed;
+
+top: 100px;
+right: 20px;
+
+background: #22c55e;
+
+color: white;
+
+padding: 12px 20px;
+
+border-radius: 12px;
+
+font-weight: bold;
+
+z-index: 9999;
+
+animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+from {
+opacity: 0;
+transform: translateX(50px);
+  }
+
+to {
+opacity: 1;
+transform: translateX(0);
+  }
+}

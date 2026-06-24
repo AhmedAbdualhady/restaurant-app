@@ -1,0 +1,37 @@
+
+.success-container {
+text-align: center;
+margin-top: 100px;
+}
+
+.success-container h1 {
+color: #ff4f8b;
+}
+
+.success-container p {
+font-size: 18px;
+}
+
+.success-container h3 {
+margin-top: 20px;
+}
+
+.success-buttons {
+margin-top: 30px;
+
+
+display: flex;
+justify-content: center;
+gap: 15px;
+}
+
+.success-buttons button {
+background: #ff4f8b;
+color: white;
+
+border: none;
+padding: 12px 20px;
+
+border-radius: 10px;
+cursor: pointer;
+}
