@@ -52,6 +52,22 @@ const handleOrder = (e) => {
 e.preventDefault();
 
 
+const user = JSON.parse(
+localStorage.getItem("user")
+);
+
+if (!user) {
+
+alert("Please Login First");
+
+navigate("/login");
+
+return;
+
+}
+
+
+
 if (!paymentMethod) {
 
 alert(
