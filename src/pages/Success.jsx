@@ -1,7 +1,10 @@
 import "../styles/Success.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Success() {
+  const location = useLocation();
+  const orderId = location.state?.orderId;
+
 return (
 <div className="success-container">
 <h1>🎉 Order Placed Successfully</h1>
@@ -10,7 +13,7 @@ return (
 Thank you for your order!
 </p>
 
-<h3>Order #1025</h3>
+<h3>Order #{orderId}</h3>
 
 <div className="success-buttons">
 <Link to="/">

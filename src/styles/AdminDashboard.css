@@ -112,3 +112,12 @@ transition:0.3s;
 transform:scale(1.05);
 
 }
+
+.order-id{
+color: #ff4f9a;
+font-size: 22px;
+font-weight: bold;
+margin-bottom: 10px;
+border-bottom: 2px solid #ffd6e7;
+padding-bottom: 8px;
+}

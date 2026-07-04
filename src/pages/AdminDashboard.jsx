@@ -163,6 +163,10 @@ key={order.id}
 className="order-card"
 >
 
+<h2 className="order-id">
+Order #{order.id}
+</h2>
+
 <h3>
       {order.customer_name}
 </h3>

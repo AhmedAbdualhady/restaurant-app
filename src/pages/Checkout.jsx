@@ -124,7 +124,12 @@ setCartItems([]);
 
 
 
-navigate("/success");
+navigate("/success",{
+  state:{
+    orderId:data.orderId
+  }
+  });
+  
   })
   
 .catch((err) => {
