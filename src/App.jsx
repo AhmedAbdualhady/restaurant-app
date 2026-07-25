@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+
 
 import Navbar from "./components/Navbar";
 
@@ -14,7 +15,14 @@ import { useEffect } from "react";
 import Footer from "./components/Footer";
 import ForgotPassword from "./pages/ForgotPassword";
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminProducts from "./pages/AdminProducts";
+import AdminSettings from "./pages/AdminSettings";
+import TrackOrder from "./pages/TrackOrder";
 
+import { AnimatePresence } from "framer-motion";
+
+
+import FlyToCart from "./components/FlyToCart";
 
 
 
@@ -26,6 +34,42 @@ JSON.parse(
 localStorage.getItem("cartItems")
   ) || []
 );
+
+
+const [flyItem, setFlyItem] = useState(null);
+
+const [cartShake,setCartShake]=useState(false);
+
+
+const [darkMode, setDarkMode] = useState(
+
+localStorage.getItem("theme")==="dark"
+
+);
+
+
+
+
+useEffect(()=>{
+
+if(darkMode){
+
+document.body.classList.add("dark");
+
+localStorage.setItem("theme","dark");
+
+}else{
+
+document.body.classList.remove("dark");
+
+localStorage.setItem("theme","light");
+
+}
+
+},[darkMode]);
+
+
+
 
 useEffect(() => {
 localStorage.setItem(
@@ -41,29 +85,70 @@ localStorage.getItem("user")
 
 
 
+
+function ProtectedAdminRoute({ children }) {
+const user = JSON.parse(localStorage.getItem("user") || "{}");
+
+if (user?.is_admin !== 1) {
+return <Home />;
+  }
+
+return children;
+}
+
+
+
+const location = useLocation();
+
+const isAdmin = location.pathname.startsWith("/admin");
+
+
+
+
 return (
 <>
-<Navbar cart={cartItems.length}/>
 
-<Routes>
+<Navbar
+
+cart={cartItems.length}
+
+darkMode={darkMode}
+
+setDarkMode={setDarkMode}
+
+cartShake={cartShake}
+
+/>
+
+
+<AnimatePresence mode="wait">
+
+<Routes location={location} key={location.pathname}>
+
 <Route
 path="/"
 element={
+
 <Home
 cartItems={cartItems}
 setCartItems={setCartItems}
-    />
+setFlyItem={setFlyItem}
+/>
+
   }
 />
 
 <Route
 path="/menu"
 element={
+    
 <Menu
 cartItems={cartItems}
 setCartItems={setCartItems}
-    />
-  }
+setFlyItem={setFlyItem}
+/>
+ 
+ }
 />
 
 <Route
@@ -104,24 +189,65 @@ element={<ForgotPassword />}
 />
 
 
+
+
+
 <Route
 path="/admin"
 element={
-user?.is_admin === 1
-? <AdminDashboard />
-: <Home />
+<ProtectedAdminRoute>
+<AdminDashboard />
+</ProtectedAdminRoute>
+  }
+/>
+
+<Route
+path="/admin/products"
+element={
+<ProtectedAdminRoute>
+<AdminProducts />
+</ProtectedAdminRoute>
+  }
+/>
+
+
+<Route
+path="/admin/home-settings"
+element={
+<ProtectedAdminRoute>
+<AdminSettings />
+</ProtectedAdminRoute>
 }
 />
+
+
+<Route
+path="/track/:id"
+element={<TrackOrder />}
+/>
+
+
 
 
 
 </Routes>
 
-<Footer cartItems={cartItems} />
+</AnimatePresence>
+
+
+
+
+<FlyToCart
+flyItem={flyItem}
+setFlyItem={setFlyItem}
+setCartShake={setCartShake}
+/>
+
+
+{!isAdmin && <Footer cartItems={cartItems} />}
+
 </>
   );
 }
 
 export default App;
-
-

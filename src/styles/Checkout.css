@@ -17,6 +17,36 @@ box-shadow: 0 4px 20px rgba(0,0,0,.1);
 }
 
 
+
+
+
+.checkout-container h1{
+
+font-size:38px;
+
+text-align:center;
+
+color:#444;
+
+margin-bottom:25px;
+
+}
+
+
+
+.payment-info h4{
+
+color:#666;
+
+font-size:20px;
+
+font-weight:700;
+
+}
+
+
+
+
 .checkout-container input {
 padding: 12px;
 
@@ -25,18 +55,44 @@ border: 1px solid #ddd;
 border-radius: 10px;
 }
 
-.checkout-container button {
-background: #ff4f8b;
-color: white;
 
-border: none;
 
-padding: 12px;
 
-border-radius: 10px;
+.checkout-container button{
 
-cursor: pointer;
+background:#ff4fa3;
+
+color:white;
+
+border:none;
+
+padding:12px;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+transition:.3s;
+
 }
+
+.checkout-container button:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 10px 25px rgba(255,79,163,.45);
+
+}
+
+.checkout-container button:active{
+
+transform:scale(.95);
+
+}
+
+
 
 
 .checkout-form {
@@ -46,71 +102,53 @@ gap: 15px;
 }
 
 
-.checkout-form input {
-width: 100%;
-padding: 12px;
-border-radius: 10px;
+.checkout-form input{
+
+width:100%;
+
+padding:16px;
+
+font-size:16px;
+
+border:2px solid #e8e8e8;
+
+border-radius:15px;
+
+outline:none;
+
+transition:.35s;
+
+background:white;
+
 }
 
 
 
-.payment-info{
-margin-top:15px;
-padding:15px;
-border-radius:12px;
-background:#fff0f7;
-border:1px solid #ff4fa3;
+.checkout-form input:focus{
+
+border-color:#ff4fa3;
+
+background:#fff;
+
+box-shadow:0 0 15px rgba(255,79,163,.18);
+
+transform:translateY(-2px) scale(1.01);
+
+
 }
 
-.payment-info h4{
-color:#ff4fa3;
-margin-bottom:10px;
+
+.payment-info p {
+    color: #666;
 }
 
-.payment-info button{
-margin-top:10px;
-background:#ff4fa3;
-color:white;
-border:none;
-padding:10px 15px;
-border-radius:8px;
-cursor:pointer;
-}
 
-.payment-info button:hover{
-opacity:.9;
-}
 
 
 
 
 /* Payment Section */
 
-.payment-section{
-margin-top:1px;
-}
-
-.payment-label{
-display:block;
-margin-bottom:8px;
-font-weight:600;
-color:#ff4fa3;
-}
-
-.payment-select{
-width:100%;
-padding:12px;
-border:2px solid #ffd1e8;
-border-radius:12px;
-background:white;
-font-size:16px;
-outline:none;
-transition:0.3s;
-}
-
-.payment-select:focus{
-border-color:#ff4fa3;
-}
 
 .payment-info{
 margin-top:15px;
@@ -120,15 +158,13 @@ border:1px solid #ffb3d9;
 border-radius:12px;
 }
 
-.payment-info h4{
-color:#ff4fa3;
-margin-bottom:10px;
-}
 
 
 .payment-info p{
 margin:6px 0;
 }
+
+
 
 .payment-info button{
 margin-top:10px;
@@ -147,16 +183,6 @@ opacity:0.9;
 
 /* Upload Image */
 
-.payment-upload{
-margin-top:1px;
-}
-
-.payment-upload label{
-display:block;
-margin-bottom:8px;
-color:#ff4fa3;
-font-weight:600;
-}
 
 .payment-upload input[type="file"]{
 width:100%;
@@ -176,38 +202,93 @@ gap:15px;
 margin-top:15px;
 }
 
+
+
+
 .payment-card{
-background:white;
-border:2px solid #ffd1e8;
-border-radius:15px;
-padding:20px;
-text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+gap:12px;
+
+background:#fff;
+
+border:2px solid #ececec;
+
+border-radius:18px;
+
+padding:22px 15px;
+
 cursor:pointer;
-transition:0.3s;
-font-size:18px;
+
+transition:.35s;
+
+min-height:145px;
 }
+
+
+
+
+.payment-icon{
+
+font-size:42px;
+
+color:#ff4fa3;
+
+transition:.3s;
+
+}
+
 
 .payment-card span{
-display:block;
-margin-top:10px;
-font-size:14px;
+
+font-size:17px;
+
 font-weight:600;
+
+color:#666;
+
+text-align:center;
+
+line-height:1.4;
+
 }
+
+body.dark  .payment-card span {
+    color: #e8e8e8;
+}
+
 
 .payment-card:hover{
-transform:translateY(-3px);
+
+transform:translateY(-8px);
+
+border-color:#ff4fa3;
+
+box-shadow:0 15px 30px rgba(255,79,163,.18);
+
 }
+
 
 .payment-card.active{
-border-color:#ff4fa3;
+
 background:#fff0f7;
+
+border-color:#ff4fa3;
+
+box-shadow:0 12px 30px rgba(255,79,163,.25);
+
+}
+
+.payment-card.active .payment-icon{
+
+transform:scale(1.12);
+
 }
 
 
-.payment-upload h4{
-color:#ff4fa3;
-margin-bottom:10px;
-}
 
 .payment-upload{
 margin-top:1px;
@@ -223,13 +304,29 @@ margin-top:15px;
 text-align:center;
 }
 
+
 .image-preview img{
-width:220px;
+
+width:320px;
+
 max-width:100%;
-border-radius:15px;
-border:3px solid #ff4fa3;
-box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+border-radius:18px;
+
+border:4px solid #ff4fa3;
+
+box-shadow:0 12px 30px rgba(0,0,0,.18);
+
+transition:.35s;
+
 }
+
+.image-preview img:hover{
+transform:
+scale(1.05)
+rotate(.4deg);
+}
+
 
 
 .file-name{
@@ -239,41 +336,661 @@ font-weight:600;
 }
 
 
+.checkout-form button[type="submit"]{
 
+width:100%;
 
-.checkout-btn{
+margin-top:20px;
+
+padding:18px;
+
+border:none;
+
+border-radius:50px;
 
 background:#ff4fa3;
 
 color:white;
 
-border:none;
-
-padding:14px 25px;
-
-border-radius:12px;
-
-font-size:16px;
+font-size:18px;
 
 font-weight:bold;
 
 cursor:pointer;
 
-transition:0.3s;
+transition:.35s;
 
-margin-top:15px;
-
-display:block;
-
-margin-left:0;
+box-shadow:0 10px 20px rgba(255,79,163,.25);
 
 }
 
-.checkout-btn:hover{
+.checkout-form button[type="submit"]:hover{
 
 background:#ff2f92;
 
-transform:scale(1.05);
+transform:translateY(-4px);
+
+box-shadow:0 18px 30px rgba(255,79,163,.4);
+
+}
+
+.checkout-form button[type="submit"]:active{
+
+transform:scale(.96);
+
+}
+
+
+
+
+
+/* =========================
+CHECKOUT DARK MODE
+========================= */
+
+
+body.dark .checkout-container{
+
+background:#181818;
+
+color:white;
+
+box-shadow:0 10px 30px rgba(0,0,0,.5);
+
+}
+
+
+
+body.dark .checkout-container h1{
+
+color:white;
+
+}
+
+
+
+body.dark .checkout-form input{
+
+background:#242424;
+
+color:white;
+
+border:2px solid #444;
+
+}
+
+
+
+body.dark .checkout-form input::placeholder{
+
+color:#aaa;
+
+}
+
+
+
+body.dark .checkout-form input:focus{
+
+border-color:#ff4fa3;
+
+background:#202020;
+
+box-shadow:0 0 15px rgba(255,79,163,.25);
+
+}
+
+
+
+/* Payment Cards */
+
+body.dark .payment-card{
+
+background:#222;
+
+border:2px solid #444;
+
+color:white;
+
+box-shadow:0 5px 15px rgba(0,0,0,.4);
+
+}
+
+
+
+body.dark .payment-card:hover{
+
+box-shadow:0 12px 25px rgba(0,0,0,.6);
+
+}
+
+
+
+body.dark .payment-card.active{
+
+background:#2b1825;
+
+border-color:#ff4fa3;
+
+box-shadow:0 10px 25px rgba(255,79,163,.25);
+
+}
+
+
+
+/* Payment Information */
+
+body.dark .payment-info{
+
+background:#242424;
+
+border:1px solid #ff4fa3;
+
+color:white;
+
+}
+
+
+
+body.dark .payment-info h4{
+
+color:#ff8fc1;
+
+}
+
+
+
+body.dark .payment-info p{
+
+color:#ddd;
+
+}
+
+
+
+/* Upload Box */
+
+body.dark .payment-upload{
+
+background:#222;
+
+color:white;
+
+}
+
+
+
+
+body.dark .payment-upload input[type="file"]{
+
+background:#181818;
+
+border:2px dashed #ff4fa3;
+
+color:white;
+
+}
+
+
+
+/* File Name */
+
+body.dark .file-name{
+
+color:#ff8fc1;
+
+}
+
+
+
+/* Preview */
+
+body.dark .image-preview img{
+
+border-color:#ff4fa3;
+
+}
+
+
+
+/* Buttonsداخلمعلوماتالدفع */
+
+body.dark .payment-info button{
+
+background:#ff4fa3;
+
+color:white;
+
+}
+
+
+
+body.dark .checkout-form button[type="submit"]{
+
+background:#ff4fa3;
+
+color:white;
+
+}
+
+
+body.dark .checkout-form button[type="submit"]:hover{
+
+background:#ff2f92;
+
+}
+
+
+
+/* إزالةأيلونفاتح */
+
+body.dark{
+
+background:#0f1721;
+
+}
+
+
+
+
+
+/* =========================
+CHECKOUT RESPONSIVE
+========================= */
+
+
+/* Tablets */
+
+@media (max-width:900px){
+
+
+.checkout-container{
+
+width:90%;
+
+margin:30px auto;
+
+padding:25px;
+
+}
+
+
+
+.payment-methods{
+
+grid-template-columns:1fr;
+
+gap:15px;
+
+}
+
+
+
+.payment-card{
+
+padding:20px;
+
+}
+
+
+
+.image-preview img{
+
+width:280px;
+
+}
+
+
+
+.checkout-container h1{
+
+font-size:32px;
+
+}
+
+
+
+}
+
+/* Mobile */
+
+@media (max-width:600px){
+
+
+.checkout-container{
+
+width:92%;
+
+margin:20px auto;
+
+padding:20px;
+
+border-radius:18px;
+
+}
+
+
+
+.checkout-container h1{
+
+font-size:28px;
+
+margin-bottom:20px;
+
+}
+
+
+
+.checkout-form{
+
+gap:12px;
+
+}
+
+
+
+.checkout-form input{
+
+padding:14px;
+
+font-size:15px;
+
+}
+
+
+
+.payment-methods{
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+}
+
+
+
+.payment-card{
+
+width:100%;
+
+padding:18px;
+
+font-size:17px;
+
+}
+
+
+
+.payment-card span{
+
+font-size:14px;
+
+}
+
+
+
+.payment-info{
+
+padding:15px;
+
+font-size:14px;
+
+}
+
+
+
+.payment-info button{
+
+width:100%;
+
+padding:12px;
+
+}
+
+
+
+.payment-upload{
+
+padding:15px;
+
+}
+
+
+
+.payment-upload input[type="file"]{
+
+font-size:14px;
+
+padding:12px;
+
+}
+
+
+
+.image-preview img{
+
+width:100%;
+
+max-width:280px;
+
+}
+
+
+
+.file-name{
+
+font-size:14px;
+
+word-break:break-word;
+
+}
+
+
+
+.checkout-form button[type="submit"]{
+
+padding:16px;
+
+font-size:17px;
+
+border-radius:50px;
+
+}
+
+
+
+}
+
+
+
+
+/* =========================
+BEAUTIFUL FILE UPLOAD
+========================= */
+
+
+.upload-box{
+
+height:160px;
+
+border:2px dashed #ff4fa3;
+
+border-radius:20px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+gap:8px;
+
+cursor:pointer;
+
+background:#fff8fc;
+
+transition:.35s;
+
+color:#ff4fa3;
+
+font-size:35px;
+
+font-weight:bold;
+
+}
+
+
+.upload-box span{
+
+font-size:18px;
+
+color:#444;
+
+}
+
+
+.upload-box small{
+
+font-size:14px;
+
+color:#666;
+
+font-weight:500;
+
+}
+
+
+
+.upload-box:hover{
+
+transform:translateY(-5px);
+
+background:#fff0f7;
+
+box-shadow:0 10px 25px rgba(255,79,163,.25);
+
+}
+
+
+
+.upload-box input{
+
+display:none;
+
+}
+
+
+
+
+body.dark .upload-box{
+
+background:#222;
+
+border-color:#ff4fa3;
+
+}
+
+
+body.dark .upload-box span{
+
+color:white;
+
+}
+
+
+body.dark .upload-box small{
+
+color:#aaa;
+
+}
+
+
+body.dark .upload-box:hover{
+
+background:#2b1825;
+
+}
+
+
+
+
+.file-name{
+
+margin-top:12px;
+
+padding:10px 15px;
+
+background:#fff0f7;
+
+border-radius:12px;
+
+color:#ff4fa3;
+
+font-weight:bold;
+
+text-align:center;
+
+word-break:break-word;
+
+}
+
+
+body.dark .file-name{
+
+background:#2b1825;
+
+color:#ff8fc1;
+
+}
+
+
+
+.checkout-container{
+animation:fadeCheckout .7s ease;
+will-change: transform, opacity;
+}
+
+
+@keyframes fadeCheckout{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+.upload-icon{
+
+font-size:42px;
+
+color:#ff4fa3;
+
+margin-bottom:10px;
+
+transition:.3s;
+
+}
+
+.upload-box:hover .upload-icon{
+
+transform:scale(1.15);
 
 }
 

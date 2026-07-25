@@ -1,6 +1,14 @@
 import "../styles/Checkout.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaUniversity } from "react-icons/fa";
+import { MdOutlineAccountBalanceWallet } from "react-icons/md";
+import { FaTruck } from "react-icons/fa";
+
+import { motion } from "framer-motion";
+
+import { FaCamera } from "react-icons/fa";
+
 
 
 
@@ -25,20 +33,36 @@ const [phone, setPhone] = useState("");
 const [paymentInfo,
 setPaymentInfo] = useState({});
 
-useEffect(() => {
+useEffect (() => {
 
-fetch(
- "http://localhost:5000/api/payment-settings"
- )
+window.scrollTo({
+  top:0,
+  behavior:"auto"
+});
+
+ 
+fetch("http://localhost:5000/api/settings")
+
+
  .then((res) =>res.json())
  .then((data) => {
 
 setPaymentInfo(data);
 
- });
+ })
+ 
+   .catch((err) =>console.error(err));
 
 }, []);
 
+
+useEffect(() => {
+return () => {
+if (preview) {
+URL.revokeObjectURL(preview);
+    }
+  };
+}, [preview]);
 
 
 
@@ -58,11 +82,18 @@ localStorage.getItem("user")
 
 if (!user) {
 
-alert("Please Login First");
 
-navigate("/login");
+alert("Please login to complete your order.");
+
+navigate("/login", {
+state: {
+from: "/checkout"
+}
+});
+
 
 return;
+
 
 }
 
@@ -111,6 +142,13 @@ formData.append("total", total);
 formData.append("payment_method", paymentMethod);
 formData.append("paymentImage", paymentImage);
 
+
+formData.append(
+"items",
+JSON.stringify(cartItems)
+);
+
+
 fetch("http://localhost:5000/api/orders", {
 method: "POST",
 body: formData,
@@ -143,8 +181,47 @@ alert("Error");
   
 
 return (
-<div className="checkout-container">
-<h1>Checkout</h1>
+
+<motion.div
+
+className="checkout-container"
+
+ initial={{
+opacity:0,
+x:60
+}}
+
+animate={{
+opacity:1,
+x:0
+}}
+
+exit={{
+opacity:0,
+x:-60
+}}
+
+transition={{
+duration:.45
+}}
+
+>
+
+
+<motion.h1
+
+initial={{ opacity: 0, x: -40 }}
+animate={{ opacity: 1, x: 0 }}
+transition={{
+delay: .2,
+duration: .5
+}}>
+
+Checkout
+
+</motion.h1>
+
+
 
 <form className="checkout-form" onSubmit={handleOrder}>
 
@@ -174,8 +251,6 @@ onChange={(e) =>setPhone(e.target.value)}
       />
 
 
-
-
 <div required className="payment-methods">
 
 <div
@@ -184,7 +259,7 @@ paymentMethod === "bank" ? "active" : ""
     }`}
 onClick={() =>setPaymentMethod("bank")}
 >
-🏦
+<FaUniversity className="payment-icon" />
 <span>Bank Transfer</span>
 </div>
 
@@ -194,7 +269,7 @@ paymentMethod === "wallet" ? "active" : ""
     }`}
 onClick={() =>setPaymentMethod("wallet")}
 >
-📱
+<MdOutlineAccountBalanceWallet className="payment-icon" />
 <span>Mobile Wallet</span>
 </div>
 
@@ -204,7 +279,7 @@ paymentMethod === "cash" ? "active" : ""
     }`}
 onClick={() =>setPaymentMethod("cash")}
 >
-🚚
+<FaTruck className="payment-icon" />
 <span>Cash On Delivery</span>
 </div>
 
@@ -235,9 +310,11 @@ Account:
 <button
 type="button"
 onClick={() =>
+
 navigator.clipboard.writeText(
-          "2448532"
-        )
+paymentInfo.account_number
+)
+
       }
 >
 Copy Account Number
@@ -264,13 +341,14 @@ Copy Account Number
 </p>
 
 
-
 <button
 type="button"
 onClick={() =>
+
 navigator.clipboard.writeText(
-          "0912345678"
-        )
+paymentInfo.wallet_number
+)
+
       }
 >
 Copy Number
@@ -294,36 +372,57 @@ Delivery Time
 </div>
 )}
 
-<div className="payment-upload">
 
-<h4>📸 Upload Payment Screenshot</h4>
+<label className="upload-box">
+
+<FaCamera className="upload-icon" />
+
+<span>
+Upload Payment Screenshot
+</span>
+
+<small>
+Click to choose image
+</small>
+
 
 <input
 type="file"
 accept="image/*"
 onChange={(e) => {
 
-const file =
-e.target.files[0];
+const file = e.target.files[0];
 
 setPaymentImage(file);
 
+
 if(file){
 
-setPreview(
-URL.createObjectURL(file)
-      );
+const imageUrl = URL.createObjectURL(file);
 
-    }
+setPreview(imageUrl);
 
-  }}
+}
+
+}}
 />
+
+</label>
+
+
+
+{paymentImage&& (
+
+<div className="file-name">
+
+{paymentImage.name}
 
 </div>
 
-<p className="file-name">
-  {paymentImage?.name}
-</p>
+)}
+
+
+
 
 
 {preview&& (
@@ -343,7 +442,7 @@ alt="Payment Preview"
 Place Order
 </button>
 </form>
-</div>
+</motion.div>
   );
 }
 

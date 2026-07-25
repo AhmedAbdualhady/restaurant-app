@@ -1,105 +1,153 @@
-
 .menu-container {
 padding: 30px;
 }
 
-.menu-container h1 {
-text-align: center;
-margin-bottom: 20px;
+
+.menu-container h1{
+
+text-align:center;
+
+font-size:42px;
+
+margin-bottom:25px;
+
+font-weight:800;
+
+color:#444;
+
+animation:fadeIn .8s;
+
 }
 
-.search-bar {
-width: 450px;
-max-width: 500px;
-display: block;
+
+
+body.dark .menu-container h1{
+
+color:white;
+
+}
+
+
+
+
+.search-container{
+display: flex;
+justify-content: center;
+align-items: center;
 margin: auto;
-padding: 12px;
-border: 1px solid #ddd;
-border-radius: 10px;
-transition: .3s;
-flex: 1;
+position:relative;
+
+width:100%;
+
+max-width:500px;
 }
 
-.search-bar:focus {
-outline: none;
 
-border-color: #ff4f8b;
 
-transform: scale(1.02);
+.search-container input{
+
+width:100%;
+
+padding:14px 50px 14px 18px;
+
+border-radius:15px;
+
+border:1px solid #ddd;
+
+font-size:16px;
+
+transition:.35s;
+
 }
 
-.search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  max-width: 550px;
-  margin: auto;
+
+
+.search-container input:focus{
+
+border-color:#ff4fa3;
+
+box-shadow:0 0 12px rgba(255,79,163,.2);
+
+outline:none;
+
 }
 
-.food-grid {
-display: grid;
 
-grid-template-columns:
-repeat(auto-fit, minmax(220px, 1fr));
 
-gap: 20px;
+.clear-search{
+
+position:absolute;
+
+right:14px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+background:none;
+
+border:none;
+
+font-size:18px;
+
+cursor:pointer;
+
+color:#999;
+
+}
+
+
+
+.food-grid{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:25px;
 
 margin-top: 30px;
-}
-
-.food-card {
-background: white;
-
-padding: 20px;
-
-border-radius: 20px;
-
-text-align: center;
-
-box-shadow: 0 4px 15px rgba(0,0,0,.08);
-
-
-transition: .3s;
-
-animation: fadeIn .5s ease;
 
 }
 
-.food-card:hover {
-transform: translateY(-10px) scale(1.03);
-}
-
-.food-card h3 {
-margin-bottom: 10px;
-}
-
-.food-card p {
-color: #ff4f8b;
-font-weight: bold;
-}
-
-.food-card button {
-margin-top: 10px;
-
-background: #ff4f8b;
-color: white;
 
 
-border: none;
+.food-card{
 
-padding: 10px 15px;
+position:relative;
 
-border-radius: 10px;
+overflow:hidden;
 
-cursor: pointer;
-transition: 0.3s;
+background:white;
+
+border-radius:20px;
+
+box-shadow:0 4px 20px rgba(0,0,0,.1);
+
+transition:.35s;
+
+padding:0;
+
+animation:fadeIn .5s ease;
+
+width: 280px;
+
+flex:0 0 250px;
+
 }
 
 
-.food-card button:hover {
-transform: scale(1.08);
+
+.food-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 15px 35px rgba(0,0,0,.18);
+
 }
+
 
 
 .menu-categories {
@@ -117,15 +165,28 @@ color: white;
 border: none;
 padding: 10px 15px;
 
-border-radius: 20px;
 cursor: pointer;
 
-transition: 0.3s;
+padding:13px 25px;
+
+font-weight:bold;
+
+border-radius:50px;
+
+font-size: 15px;
+
+transition:.35s;
+
+box-shadow:0 5px 15px rgba(255,79,139,.15);
+
+
 }
 
 
-.menu-categories button:hover {
-transform: scale(1.05);
+.menu-categories button:hover{
+
+transform:translateY(-3px);
+
 }
 
 .active-category {
@@ -136,6 +197,8 @@ transform: scale(1.1);
 
 box-shadow: 0 5px 15px rgba(255,79,139,.4);
 }
+
+
 
 @keyframes fadeIn {
 from {
@@ -150,16 +213,36 @@ transform: translateY(0);
 }
 
 
-.food-image {
-width: 100%;
-height: 150px;
 
-object-fit: cover;
+.food-image{
 
-border-radius: 15px;
+width:100%;
 
-margin-bottom: 10px;
+height:200px;
+
+object-fit:cover;
+
+display:block;
+
+transition:.4s;
+
 }
+
+
+
+.food-card:hover .food-image{
+
+transform:scale(1.04);
+
+}
+
+
+.menu-category-badge{
+
+box-shadow:0 4px 12px rgba(0,0,0,.2);
+
+}
+
 
 .no-food {
 text-align: center;
@@ -170,26 +253,39 @@ margin-top: 40px;
 }
 
 
-.clear-search {
-border: none;
 
-background: #ff4f8b;
+body.dark .no-food {
+text-align: center;
 
-color: white;
+color: #fff;
 
-padding: 10px;
-
-border-radius: 10px;
-
-cursor: pointer;
-
-margin-left: 10px;
+margin-top: 40px;
 }
 
-.old-price {
-text-decoration: line-through;
-color: gray;
+
+
+.rating{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:4px;
+
+margin:10px 0;
 }
+
+.rating svg{
+color:#f4b400;
+font-size:20px;
+}
+
+.rating span{
+margin-left:8px;
+font-size:20px;
+font-weight:600;
+color:#666;
+}
+
+
 
 .success-message {
 position: fixed;
@@ -223,3 +319,465 @@ opacity: 1;
 transform: translateX(0);
   }
 }
+
+
+
+
+.add-to-cart-btn{
+
+width:90%;
+
+height: 10%;
+
+margin:18px auto 25px;
+
+display:block;
+
+padding:13px;
+
+border:none;
+
+border-radius:12px;
+
+background:#ff4fa3;
+
+color:white;
+
+font-size:15px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.add-to-cart-btn:hover{
+
+background:#ff2f92;
+
+transform:translateY(-3px);
+
+box-shadow:0 10px 20px rgba(255,79,163,.35);
+
+}
+
+.add-to-cart-btn:active{
+
+transform:scale(.96);
+
+}
+
+
+
+
+.image-box{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+.menu-category-badge{
+
+position:absolute;
+
+top:15px;
+
+left:15px;
+
+background:#ff4fa3;
+
+color:white;
+
+padding:6px 14px;
+
+border-radius:30px;
+
+font-size:13px;
+
+font-weight:bold;
+
+box-shadow:0 4px 10px rgba(0,0,0,.2);
+
+}
+
+
+
+.food-card h3{
+
+margin-bottom: 1px;
+color: #222;
+font-weight: 700;
+
+font-size:22px;
+
+margin-left: 14px;
+
+}
+
+.food-card .price{
+
+display:flex;
+
+justify-content:center;
+
+font-size:35px;
+
+font-weight:bold;
+
+color:#ff4d94;
+
+}
+
+.food-card .old-price{
+
+display:flex;
+
+justify-content:center;
+
+font-size:25px;
+
+font-weight:bold;
+
+color:#999;
+
+text-decoration:line-through;
+
+}
+
+
+
+
+
+body.dark .menu-container{
+
+background: #0f1721;
+}
+
+body.dark .food-card{
+
+background:#1a1a1a;
+
+}
+
+body.dark .price{
+
+color:#ff5ea8;
+
+}
+
+body.dark .old-price{
+
+color:#999;
+
+}
+
+body.dark .rating span{
+
+color:#ddd;
+
+}
+
+
+
+body.dark .menu-categories button{
+
+background:#252525;
+
+}
+
+body.dark .menu-category-badge{
+
+background:#ff4fa3;
+
+}
+
+
+body.dark .food-card h3{
+
+color:white;
+
+}
+
+
+body.dark .menu-categories button:hover{
+
+background:#ff4fa3;
+
+}
+
+
+@media (max-width:768px){
+
+.menu-container{
+
+padding:20px;
+
+}
+
+.menu-container h1{
+
+font-size:32px;
+
+}
+
+.search-container{
+
+flex-direction:column;
+
+width:100%;
+
+}
+
+
+.clear-search{
+
+width:100%;
+
+margin:0;
+
+}
+
+.menu-categories{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap:12px;
+
+}
+
+.menu-categories button{
+flex: 1 1 140px;
+max-width: 170px;
+
+}
+
+.food-card{
+
+width:100%;
+
+max-width:340px;
+
+}
+
+.food-image{
+
+height:200px;
+
+}
+
+}
+
+.food-grid h3 {
+  color: #444;
+}
+
+
+
+.food-grid{
+
+transition:.45s;
+
+}
+
+.food-grid.loading{
+
+position:relative;
+
+opacity:.35;
+
+filter:blur(8px);
+
+transform:scale(.98);
+
+pointer-events:none;
+
+min-height: 900px;
+
+}
+
+.food-grid:not(.loading){
+
+opacity:1;
+
+filter:blur(0);
+
+transform:scale(1);
+
+transition:
+
+opacity .45s,
+
+filter .45s,
+
+transform .45s;
+
+}
+
+
+
+
+.food-grid.loading::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:linear-gradient(
+120deg,
+transparent 0%,
+rgba(255,255,255,.45) 45%,
+transparent 100%
+);
+
+background-size:200% 100%;
+
+animation:glassMove 1.2s linear infinite;
+
+pointer-events:none;
+
+}
+
+
+@keyframes glassMove{
+
+from{
+
+background-position:200% 0;
+
+}
+
+to{
+
+background-position:-200% 0;
+
+}
+
+}
+
+
+
+.menu-price-box{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+min-height:60px;
+}
+
+
+
+
+.discount-badge,
+.menu-discount-badge,
+.home-discount-badge{
+
+position:absolute;
+
+top:15px;
+
+right:-18px;
+
+padding:10px 22px;
+
+background:linear-gradient(135deg,#ff2d55,#ff7b54);
+
+color:#fff;
+
+font-size:13px;
+
+font-weight:800;
+
+letter-spacing:.5px;
+
+border-radius:40px;
+
+transform:rotate(14deg);
+
+box-shadow:
+0 12px 30px rgba(255,45,85,.45),
+0 0 18pxrgba(255,90,90,.35);
+
+border:2px solid rgba(255,255,255,.45);
+
+overflow:hidden;
+
+z-index:20;
+
+animation:discountPulse 2s infinite;
+
+}
+
+
+.discount-badge::before,
+.menu-discount-badge::before,
+.home-discount-badge::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-70%;
+
+width:45%;
+
+height:100%;
+
+background:rgba(255,255,255,.55);
+
+transform:skewX(-25deg);
+
+animation:shine 2.2s infinite;
+
+}
+
+
+.product-card:hover .discount-badge,
+.food-card:hover .menu-discount-badge,
+.card:hover .home-discount-badge{
+
+transform:rotate(14deg) scale(1.12);
+
+transition:.35s;
+
+}
+
+@keyframes shine{
+
+0%{
+left:-70%;
+}
+
+100%{
+left:140%;
+}
+
+}
+
+@keyframes discountPulse{
+
+0%{
+box-shadow:
+0 12px 30px rgba(255,45,85,.35);
+}
+
+50%{
+box-shadow:
+0 18px 40px rgba(255,45,85,.65);
+}
+
+100%{
+box-shadow:
+0 12px 30px rgba(255,45,85,.35);
+}
+
+}
+

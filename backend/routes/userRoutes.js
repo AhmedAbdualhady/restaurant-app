@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../config/database");
 const bcrypt = require("bcrypt");
-
+const jwt = require("jsonwebtoken");
 
 
 router.post("/register", async (req, res) => {
@@ -81,12 +81,34 @@ password,
 result[0].password
 );
 
+
+
 if (match) {
+
+const user = result[0];
+
+const token = jwt.sign(
+{
+id: user.id,
+is_admin: user.is_admin,
+},
+process.env.JWT_SECRET,
+{
+expiresIn: "7d",
+}
+);
 
 res.json({
 success: true,
-user: result[0],
+token,
+user: {
+id: user.id,
+name: user.name,
+email: user.email,
+is_admin: user.is_admin,
+},
 });
+
 
 } else {
 
@@ -100,6 +122,22 @@ message: "Invalid Email or Password",
 }
 
 );
+
+});
+
+
+
+router.get("/users/count", (req, res) => {
+
+db.query(
+"SELECT COUNT(*) AS totalUsers FROM users",
+(err, result) => {
+
+if (err) return res.json(err);
+
+res.json(result[0]);
+
+});
 
 });
 

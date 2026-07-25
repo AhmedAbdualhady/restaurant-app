@@ -1,9 +1,18 @@
 import "../styles/Login.css";
 import { useState , useEffect } from "react";
-import { Link , useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+
+import { motion } from "framer-motion";
+
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+
+
+
 
 function Login() {
-  const navigate = useNavigate();
+
+const navigate = useNavigate();
+const location = useLocation();
   
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
@@ -13,11 +22,15 @@ const [rememberMe, setRememberMe] = useState(false);
 
 useEffect(() => {
 
+window.scrollTo({
+  top:0,
+  behavior:"auto"
+});
+
 const savedEmail =
 localStorage.getItem("userEmail");
 
-if(savedEmail){
-
+if (savedEmail) {
 setEmail(savedEmail);
 setRememberMe(true);
 
@@ -47,38 +60,101 @@ password,
   .then((data) => {
 if (data.success) {
 
+
+localStorage.setItem("token", data.token);
+
 localStorage.setItem(
   "user",
 JSON.stringify(data.user)
 );
 
 
-if(rememberMe){
 
-localStorage.setItem(
-  "userEmail",
-email
- );
+if (rememberMe) {
+
+localStorage.setItem("userEmail", email);
+
+} else {
+
+localStorage.removeItem("userEmail");
 
 }
 
 
+
 alert("Login Successful");
 
-navigate("/");
+
+
+if (data.user.is_admin === 1) {
+
+navigate("/admin");
+
+} else {
+
+const redirect =
+location.state?.from || "/";
+
+navigate(redirect);
+
+}
+
+
+
     } else {
 alert("Invalid Email Or Password");
     }
   })
-  .catch((err) =>console.log(err));
+  
+.catch(err =>console.error(err));
+
 };
 
 
 
-
 return (
-<div className="login-container">
-<h1>Login</h1>
+
+
+<motion.div
+
+className="login-container"
+
+
+ initial={{
+opacity:0,
+x:60
+}}
+
+animate={{
+opacity:1,
+x:0
+}}
+
+exit={{
+opacity:0,
+x:-60
+}}
+
+transition={{
+duration:.45
+}}
+
+>
+
+
+<motion.h1
+
+initial={{ opacity: 0, x: -40 }}
+animate={{ opacity: 1, x: 0 }}
+transition={{
+delay: .2,
+duration: .5
+}}>
+
+Login
+
+</motion.h1>
+
 
 <form className="login-form" onSubmit={handleLogin}>
 
@@ -89,6 +165,9 @@ placeholder="Enter Email"
 value={email}
 onChange={(e) =>setEmail(e.target.value)}
       />
+
+
+<div className="password-box">
 
 <input
 type={showPassword ? "text" : "password"}
@@ -104,8 +183,15 @@ type="button"
 className="show-btn"
 onClick={() =>setShowPassword(!showPassword)}
 >
-  {showPassword ? "Hide Password" : "Show Password"}
+
+
+{showPassword ? <FaEyeSlash /> : <FaEye />}
+
+
 </button>
+
+</div>
+
 
 <label className="remember">
 <input
@@ -133,7 +219,10 @@ Register
 </p>
 </form>
 
-</div>
+
+</motion.div>
+
+
   );
 }
 

@@ -9,7 +9,7 @@ database: process.env.DB_NAME,
 
 db.connect((err) => {
 if (err) {
-console.log("Database Error:", err);
+console.error("Database Error:", err);
   } else {
 console.log("MySQL Connected");
   }

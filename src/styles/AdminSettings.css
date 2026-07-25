@@ -1,0 +1,346 @@
+.admin-setting-content h1{
+
+font-size:34px;
+
+font-weight:700;
+
+color:#444;
+
+margin-bottom:30px;
+
+}
+
+body.dark .admin-setting-content h1{
+
+color:white;
+
+}
+
+
+.settings-card{
+
+background:white;
+
+padding:30px;
+
+border-radius:18px;
+
+margin-bottom:25px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+transition:.35s;
+
+}
+
+
+.settings-card:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 18px 40px rgba(0,0,0,.15);
+
+}
+
+
+.settings-card h2{
+
+font-size:25px;
+
+font-weight:700;
+
+color:#444;
+
+margin-bottom:22px;
+
+}
+
+body.dark .settings-card h2{
+
+color:white;
+
+}
+
+
+
+.settings-card input{
+
+width:100%;
+
+padding:15px;
+
+margin-bottom:18px;
+
+border:2px solid #ddd;
+
+border-radius:12px;
+
+font-size:16px;
+
+outline:none;
+
+transition:.3s;
+
+background:white;
+
+}
+
+.settings-card input:focus{
+
+border-color:#ff4fa3;
+
+background:#fff0f7;
+
+box-shadow:0 0 12px rgba(255,79,163,.25);
+
+}
+
+
+
+
+.settings-card textarea{
+
+width:100%;
+
+min-height:130px;
+
+padding:15px;
+
+border:2px solid #ddd;
+
+border-radius:12px;
+
+font-size:16px;
+
+font-family:inherit;
+
+outline:none;
+
+resize:vertical;
+
+transition:.3s;
+
+background:white;
+
+}
+
+.settings-card textarea:focus{
+
+border-color:#ff4fa3;
+
+background:#fff0f7;
+
+box-shadow:0 0 12px rgba(255,79,163,.25);
+
+}
+
+
+body.dark .settings-card input,
+body.dark .settings-card textarea{
+
+background:#2a2a2a;
+
+border-color:#444;
+
+color:white;
+
+}
+
+body.dark .settings-card input::placeholder,
+body.dark .settings-card textarea::placeholder{
+
+color:#aaa;
+
+}
+
+body.dark .settings-card input:focus,
+body.dark .settings-card textarea:focus{
+
+background:#333;
+
+border-color:#ff4fa3;
+
+}
+
+
+.save-settings-btn{
+
+background:#ff4fa3;
+
+color:white;
+
+border:none;
+
+padding:15px 35px;
+
+border-radius:14px;
+
+font-size:17px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.save-settings-btn:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 12px 25px rgba(255,79,163,.35);
+
+}
+
+.save-settings-btn:active{
+
+transform:scale(.96);
+
+}
+
+
+.admin-setting-products {
+padding: 25px;
+min-height: 100vh;
+}
+
+.admin-setting-content{
+
+animation:fadeSettings .6s ease;
+margin-left:270px;
+padding:30px;
+}
+
+@keyframes fadeSettings{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+}
+
+
+
+@media (max-width:768px){
+
+.admin-content{
+
+padding:15px;
+
+}
+
+.settings-card{
+	
+padding:20px;
+
+}
+	
+.settings-card h2{
+
+font-size:22px;
+
+}
+
+.save-settings-btn{
+
+width:100%;
+
+}
+
+}
+
+
+
+
+.section-icon{
+
+margin-right:10px;
+
+color:#ff4fa3;
+
+font-size:22px;
+
+vertical-align:middle;
+
+}
+
+body.dark .section-icon{
+
+color:#ff7ab8;
+
+}
+
+body.dark .admin-setting-products {
+    background:#0f1721; 
+}
+
+body.dark .admin-setting-content {
+    background:#0f1721;
+
+}
+
+
+
+
+body.dark .settings-card{
+
+background:#1d1d1d;
+
+border:1px solid #333;
+
+box-shadow:none;
+
+
+
+}
+
+body.dark .settings-card h2{
+
+color:white;
+
+}
+
+body.dark .settings-card input{
+
+background:#2a2a2a;
+
+color:white;
+
+border-color:#444;
+
+}
+
+body.dark .settings-card textarea{
+
+background:#2a2a2a;
+
+color:white;
+
+border-color:#444;
+
+}
+
+body.dark .save-settings-btn{
+
+background:#ff4fa3;
+
+}
+
+body.dark .save-settings-btn:hover{
+
+background:#ff2f92;
+
+}
+

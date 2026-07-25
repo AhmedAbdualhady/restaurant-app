@@ -10,6 +10,10 @@ const paymentRoutes =
 require("./routes/paymentRoutes");
 
 
+const settingsRoutes = require("./routes/settingsRoutes");
+
+
+
 
 
 const app = express();
@@ -21,7 +25,7 @@ app.use("/uploads", express.static("uploads"));
 app.use(express.urlencoded({ extended: true }));
 
 // ✅ 2. Routes
-app.use("/api", foodRoutes); // 👈الأفضلتضيف /api
+app.use("/api", foodRoutes);                                   // 👈الأفضلتضيف /api
 
 app.use("/api", userRoutes);
 
@@ -30,6 +34,13 @@ app.use("/api", orderRoutes);
 app.use("/api", authRoutes);
 
 app.use("/api", paymentRoutes);
+
+app.use("/api/admin", foodRoutes);
+
+
+app.use("/api/settings", settingsRoutes);
+
+
 
 
 // ✅ 3. Test Route
