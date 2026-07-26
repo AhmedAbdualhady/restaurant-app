@@ -217,7 +217,7 @@ scale:.97
 
 <img
 className="cart-image"
-src={`http://localhost:5000/uploads/${item.image}`}
+src={`https://restaurant-app-production-0924.up.railway.app/uploads/${item.image}`}
 alt={item.name}
 />
 

@@ -46,7 +46,7 @@ alert("Please fill all fields");
 return;
     }
     
-fetch("http://localhost:5000/api/login", {
+fetch("https://restaurant-app-production-0924.up.railway.app/api/login", {
 method: "POST",
 headers: {
     "Content-Type": "application/json",

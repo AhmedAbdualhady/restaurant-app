@@ -41,7 +41,7 @@ restaurant_name: "",
 });
 
 useEffect(() => {
-fetch("http://localhost:5000/api/settings")
+fetch("https://restaurant-app-production-0924.up.railway.app/api/settings")
     .then((res) => res.json())
     .then((data) => setSettings(data));
 }, []);

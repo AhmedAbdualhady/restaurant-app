@@ -45,7 +45,7 @@ useEffect(() => {
 const fetchOrders = () => {
 
 fetch(
-"http://localhost:5000/api/orders"
+"https://restaurant-app-production-0924.up.railway.app/api/orders"
 )
 
 .then((res)=>res.json())
@@ -59,7 +59,7 @@ setOrders(data);
 .catch(err =>console.error(err));
 
 
-fetch("http://localhost:5000/api/users/count")
+fetch("https://restaurant-app-production-0924.up.railway.app/api/users/count")
 .then(res =>res.json())
 .then(data => {
 setTotalUsers(data.totalUsers);
@@ -88,7 +88,7 @@ try{
 
 const res = await fetch(
 
-`http://localhost:5000/api/orders/${id}`,
+`https://restaurant-app-production-0924.up.railway.app/api/orders/${id}`,
 
 {
 
@@ -784,7 +784,7 @@ return (
 {order.payment_image&& (
 
 <img
-src={`http://localhost:5000/uploads/${order.payment_image}`}
+src={`https://restaurant-app-production-0924.up.railway.app/uploads/${order.payment_image}`}
 alt="payment"
 className="payment-proof"
 />

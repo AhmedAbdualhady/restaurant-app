@@ -36,7 +36,7 @@ const [rated, setRated] = useState(false);
 
 useEffect(() => {
 
-fetch(`http://localhost:5000/api/orders/${id}`)
+fetch(`https://restaurant-app-production-0924.up.railway.app/api/orders/${id}`)
 
 .then(res =>res.json())
 
@@ -96,7 +96,7 @@ return;
 
 }
 
-fetch(`http://localhost:5000/api/orders/${id}/rating`,{
+fetch(`https://restaurant-app-production-0924.up.railway.app/api/orders/${id}/rating`,{
 
 method:"PUT",
 

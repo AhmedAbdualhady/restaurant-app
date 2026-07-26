@@ -41,7 +41,7 @@ window.scrollTo({
 });
 
  
-fetch("http://localhost:5000/api/settings")
+fetch("https://restaurant-app-production-0924.up.railway.app/api/settings")
 
 
  .then((res) =>res.json())
@@ -149,7 +149,7 @@ JSON.stringify(cartItems)
 );
 
 
-fetch("http://localhost:5000/api/orders", {
+fetch("https://restaurant-app-production-0924.up.railway.app/api/orders", {
 method: "POST",
 body: formData,
 })

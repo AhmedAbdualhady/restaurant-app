@@ -39,7 +39,7 @@ window.scrollTo({
 });
 
 
-fetch("http://localhost:5000/api/settings")
+fetch("https://restaurant-app-production-0924.up.railway.app/api/settings")
 
 .then(res =>res.json())
 
@@ -56,7 +56,7 @@ setHomeSettings(data);
 useEffect(() => {
 
 
-fetch("http://localhost:5000/api/foods")
+fetch("https://restaurant-app-production-0924.up.railway.app/api/foods")
 .then((res) =>res.json())
 .then((data) => {
 setFoods(data);
@@ -88,7 +88,7 @@ img.getBoundingClientRect();
 
 setFlyItem({
 
-image:`http://localhost:5000/uploads/${item.image}`,
+image:`https://restaurant-app-production-0924.up.railway.app/uploads/${item.image}`,
 
 rect
 
@@ -204,7 +204,7 @@ duration: 0.8
 <img
 src={
 heroFood
-? `http://localhost:5000/uploads/${heroFood.image}`
+? `https://restaurant-app-production-0924.up.railway.app/uploads/${heroFood.image}`
 : "/images/hero.jpg"
 }
 alt="Hero"
@@ -535,7 +535,7 @@ key={food.id}>
 
 
 <img
-src={`http://localhost:5000/uploads/${food.image}`}
+src={`https://restaurant-app-production-0924.up.railway.app/uploads/${food.image}`}
 alt={food.name}
 />
 

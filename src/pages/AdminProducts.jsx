@@ -88,7 +88,7 @@ const desserts = foods.filter(
 
 const fetchFoods = () => {
 
-fetch("http://localhost:5000/api/admin/foods")
+fetch("https://restaurant-app-production-0924.up.railway.app/api/admin/foods")
 .then((res) =>res.json())
 .then((data) =>setFoods(Array.isArray(data) ? data : []))
 .catch((err) =>console.error(err));
@@ -134,8 +134,8 @@ formData.append("discount", form.discount);
 
 
 const url = editId
-    ? `http://localhost:5000/api/foods/${editId}`
-    : "http://localhost:5000/api/foods";
+    ? `https://restaurant-app-production-0924.up.railway.app/api/foods/${editId}`
+    : "https://restaurant-app-production-0924.up.railway.app/api/foods";
 
 const method = editId ? "PUT" : "POST";
 
@@ -206,7 +206,7 @@ const confirmDelete = window.confirm(
 if (!confirmDelete) return;
 
 
-fetch(`http://localhost:5000/api/foods/${id}`, {
+fetch(`https://restaurant-app-production-0924.up.railway.app/api/foods/${id}`, {
 
 method: "DELETE",
 
@@ -238,7 +238,7 @@ discount: food.discount,
 image: food.image,
 });
 
-setPreview(`http://localhost:5000/uploads/${food.image}`);
+setPreview(`https://restaurant-app-production-0924.up.railway.app/uploads/${food.image}`);
 
 setEditId(food.id);
 setShowModal(true);
@@ -476,7 +476,7 @@ filteredFoods.map((food)=>(
 
 
 <img
-src={`http://localhost:5000/uploads/${food.image}`}
+src={`https://restaurant-app-production-0924.up.railway.app/uploads/${food.image}`}
 alt={food.name}
 className="admin-food-image"
 />

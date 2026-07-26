@@ -41,7 +41,7 @@ return;
 try {
 
 const res = await fetch(
-"http://localhost:5000/api/forgot-password",
+"https://restaurant-app-production-0924.up.railway.app/api/forgot-password",
 {
 method:"POST",
 headers:{
@@ -96,7 +96,7 @@ return;
 try {
 
 const res = await fetch(
-"http://localhost:5000/api/reset-password",
+"https://restaurant-app-production-0924.up.railway.app/api/reset-password",
 {
 method:"POST",
 headers:{

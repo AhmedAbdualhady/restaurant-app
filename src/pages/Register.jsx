@@ -35,7 +35,7 @@ if (password !== confirmPassword) {
 alert("Passwords do not match");
 return;
 }
-  fetch("http://localhost:5000/api/register", {
+  fetch("https://restaurant-app-production-0924.up.railway.app/api/register", {
 method: "POST",
 headers: {
     "Content-Type": "application/json",

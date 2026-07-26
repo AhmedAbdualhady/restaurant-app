@@ -40,7 +40,7 @@ window.scrollTo({
   behavior:"auto"
 });
 
-fetch("http://localhost:5000/api/foods")
+fetch("https://restaurant-app-production-0924.up.railway.app/api/foods")
       .then((res) =>res.json())
       .then((data) => {
 setFoods(data);
@@ -96,7 +96,7 @@ img.getBoundingClientRect();
 
 setFlyItem({
 
-image:`http://localhost:5000/uploads/${food.image}`,
+image:`https://restaurant-app-production-0924.up.railway.app/uploads/${food.image}`,
 
 rect
 
@@ -343,7 +343,7 @@ delay: index * 0.08
 
 <div className="image-box">
 <img
-src={`http://localhost:5000/uploads/${food.image}`}
+src={`https://restaurant-app-production-0924.up.railway.app/uploads/${food.image}`}
 alt={food.name}
 className="food-image"
                 />
