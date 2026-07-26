@@ -1,4 +1,4 @@
-import "../styles/Cart.css";
+import "../styles/cart.css";
 import { useNavigate } from "react-router-dom";
 import { FaTrashAlt } from "react-icons/fa";
 
