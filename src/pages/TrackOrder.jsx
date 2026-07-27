@@ -33,28 +33,32 @@ const [rated, setRated] = useState(false);
   },[]);
 
 
-
 useEffect(() => {
+
+const fetchOrder = () => {
 
 fetch(`https://restaurant-app-production-0924.up.railway.app/api/orders/${id}`)
 
 .then(res =>res.json())
 
-.then(data=>{
+.then(data => {
 
 setOrder(data);
 
-if(data.rating){
-
+if (data.rating) {
 setRating(data.rating);
-
 setRated(true);
-
 }
 
-})
+});
 
-.catch(err =>console.error(err));
+};
+
+fetchOrder(); // أولمرة
+
+const interval = setInterval(fetchOrder, 3000); // يحدثكل 3 ثواني
+
+return () =>clearInterval(interval);
 
 }, [id]);
 
