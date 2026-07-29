@@ -106,7 +106,7 @@ flex-wrap:wrap;
 
 justify-content:center;
 
-gap:20px;
+gap:25px;
 
 margin-top: 30px;
 
@@ -513,12 +513,6 @@ background:#ff4fa3;
 
 @media (max-width:768px){
 
-.food-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-}
-
 .menu-container{
 
 padding:20px;
@@ -562,36 +556,18 @@ max-width: 170px;
 
 }
 
-
 .food-card{
+
 width:100%;
-max-width:none;
-flex:none;
+
+max-width:340px;
+
 }
-
-
-
 
 .food-image{
-height:140px;
-}
 
+height:200px;
 
-.food-card h3{
-font-size:18px;
-}
-
-.food-card .price{
-font-size:28px;
-}
-
-.food-card .old-price{
-font-size:18px;
-}
-
-.add-to-cart-btn{
-padding:10px;
-font-size:14px;
 }
 
 }
