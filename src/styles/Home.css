@@ -1797,7 +1797,7 @@ gap:5px;
 /* روابطالتنقل */
 .nav-links{
 display:flex;
-gap:15px;
+gap:10px;
 align-items:center;
 flex-wrap:wrap;
 }
@@ -1809,7 +1809,7 @@ font-size:24px;
 
 /* زرالخروج */
 .logout-btn, .login-btn{  
-padding:10px 5px;
+padding:10px 1px;
 font-size: 15px;
 }
 
