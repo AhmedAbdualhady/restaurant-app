@@ -1,8 +1,9 @@
 import { Link, useNavigate, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
-
 import { motion } from "framer-motion";
+import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
+
 
 
 
@@ -179,10 +180,9 @@ duration:.45
 
 
 <NavLink to="/login" className="login-btn">
-Login
+<FaSignInAlt />
+<span>Login</span>
 </NavLink>
-
-
 
   ) : (
 
@@ -190,8 +190,10 @@ Login
 className="logout-btn"
 onClick={logout}
 >
-Logout
+<FaSignOutAlt />
+<span>Logout</span>
 </button>
+
 
   )}
 
