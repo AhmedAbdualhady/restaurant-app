@@ -1797,7 +1797,7 @@ gap:5px;
 /* روابطالتنقل */
 .nav-links{
 display:flex;
-gap:10px;
+gap:17px;
 align-items:center;
 flex-wrap:wrap;
 }
