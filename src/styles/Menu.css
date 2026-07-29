@@ -556,16 +556,13 @@ max-width: 170px;
 
 }
 
-
-
-
-
 .food-card{
-flex: 0 0 calc(50% - 10px);
-max-width: calc(50% - 10px);
+
+width:70%;
+
+max-width:250px;
+
 }
-
-
 
 .food-image{
 
