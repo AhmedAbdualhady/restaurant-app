@@ -190,14 +190,17 @@ color:white;
 @media (max-width:768px){
 
 .admin-sidebar{
-
-width:60px;
-padding:18px 6px;
+width:70px;
+padding:18px 8px;
 top:70px;
 height:calc(100vh - 70px);
 
 }
 
+.admin-content{
+margin-left:70px;
+padding:12px;
+}
 
 
 .logo{

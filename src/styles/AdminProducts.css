@@ -1451,10 +1451,18 @@ padding:15px;
 }
 
 .products-grid{
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:18px;
+grid-template-columns:1fr;
+
+gap:16px;
 }
 
+.product-card{
+
+width:100%;
+
+max-width:100%;
+
+}
 
 .stats-grid{
 grid-template-columns:1fr;
@@ -1488,7 +1496,7 @@ font-size:18px;
 }
 
 .image-box{
-height:180px;
+height:150px;
 }
 
 .product-top h2{
