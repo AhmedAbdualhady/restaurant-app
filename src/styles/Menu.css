@@ -510,19 +510,27 @@ background:#ff4fa3;
 
 }
 
-
 @media (max-width:768px){
 
 .menu-container{
 
-padding:20px;
-
+padding:15px;
 }
 
 .menu-container h1{
 
 font-size:32px;
 
+}
+
+
+.food-grid{
+gap:16px;
+}
+
+.food-card h3{
+font-size:18px;
+margin-left:10px;
 }
 
 .search-container{
@@ -550,24 +558,46 @@ gap:12px;
 
 }
 
+.menu-category-badge{
+font-size:11px;
+padding:5px 10px;
+}
+
+.menu-discount-badge{
+font-size:11px;
+padding:8px 14px;
+}
+
+
 .menu-categories button{
 flex: 1 1 140px;
 max-width: 170px;
 
 }
 
+.food-card .price{
+font-size:28px;
+}
+
+.food-card .old-price{
+font-size:18px;
+}
+
+.add-to-cart-btn{
+width:92%;
+padding:10px;
+font-size:14px;
+margin:14px auto 18px;
+}
+
 .food-card{
 
 width:100%;
-
-max-width:340px;
-
+max-width:290px;
 }
 
 .food-image{
-
-height:200px;
-
+height:150px;
 }
 
 }
