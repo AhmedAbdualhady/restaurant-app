@@ -1,0 +1,43 @@
+/* =========================================
+BURGER INTRO - يشتغللوحدوفيالهيرو
+========================================= */
+/* الصورةتفضلمتوسطةوالمشهديتحطفوقها */
+.hero-image {	
+position: relative;
+align-items: center;
+min-height: 470px;
+}
+
+.bi-scene {
+position: absolute;
+left: 50%;
+top: 50%;
+z-index: 5;
+width: min(100%, 400px);
+aspect-ratio: 400 / 460;
+transform: translate(-50%, -50%);
+pointer-events: none;
+}
+
+.bi-svg,
+.bi-burger {
+position: absolute;
+inset: 0;
+width: 100%;
+height: 100%;
+}
+
+/* الطبقاتتنزلمنفوقحدودالـSVG */
+.bi-burger svg {
+overflow: visible;
+}
+
+@media (max-width: 768px) {
+  .hero-image {
+min-height: 300px;
+  }
+
+  .bi-scene {
+width: min(64vw, 240px);
+  }
+}

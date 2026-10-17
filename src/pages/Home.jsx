@@ -2,7 +2,7 @@ import "../styles/Home.css";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import StarRating from "../components/StarRating";
-import BurgerStory from "../components/BurgerStory";
+import BurgerIntro from "../components/BurgerIntro";
 
 import { motion } from "framer-motion";
 
@@ -202,21 +202,19 @@ duration: 0.8
 >
 
 
-<img
-src={
-heroFood
-? `https://restaurant-app-production-0924.up.railway.app/uploads/${heroFood.image}`
-: "/images/hero.jpg"
-}
-alt="Hero"
-/>
+
+
+<BurgerIntro src={heroFood ? `https://restaurant-app-production-0924.up.railway.app/uploads/${heroFood.image}` : "/images/hero.jpg"} alt="Hero" />
+
+
+
+
 
 
 </motion.div>
 
 </section>
 
-<BurgerStory/>
 
 <section className="categories">
 
