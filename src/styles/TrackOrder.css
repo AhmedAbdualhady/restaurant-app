@@ -12,8 +12,6 @@ padding:20px;
 
 
 
-
-
 .track-title{
 color: #444;
 display:flex;
@@ -23,6 +21,10 @@ gap:12px;
 margin-bottom:20px;
 }
 
+
+.track-icon {
+  color: #ff4f8b;
+}
 
 
 
@@ -172,9 +174,9 @@ color:white;
 
 animation:zoom .8s;
 
+border: 3px solid #22c55e;
+
 }
-
-
 
 
 @keyframes pulse{

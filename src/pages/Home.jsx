@@ -2,6 +2,7 @@ import "../styles/Home.css";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import StarRating from "../components/StarRating";
+import BurgerStory from "../components/BurgerStory";
 
 import { motion } from "framer-motion";
 
@@ -215,6 +216,7 @@ alt="Hero"
 
 </section>
 
+<BurgerStory/>
 
 <section className="categories">
 

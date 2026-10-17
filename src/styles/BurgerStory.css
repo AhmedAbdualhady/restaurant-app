@@ -1,0 +1,233 @@
+
+/* =========================================
+BURGER STORY - scroll animation
+========================================= */
+
+.bs {
+position: relative;
+height: 420vh;
+background: linear-gradient(180deg, #fff5fa, #ffe6f1);
+}
+
+body.dark .bs {
+background: #0f172a;
+}
+
+/* الجزءالثابت: بيفضلفيالشاشةوانتبتعملscroll */
+.bs-sticky {
+position: sticky;
+top: 0;
+height: 100vh;
+height: 100svh;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 6vw;
+padding: 90px 8% 30px;
+overflow: hidden;
+}
+
+/* ---------- Text ---------- */
+
+.bs-text {
+flex: 1;
+max-width: 480px;
+text-align: left;
+}
+
+.bs-heading {
+margin-bottom: 28px;
+color: #444;
+font-size: clamp(30px, 4.2vw, 52px);
+font-weight: 800;
+line-height: 1.1;
+letter-spacing: 0;
+}
+
+body.dark .bs-heading {
+color: #fff;
+}
+
+.bs-step {
+min-height: 120px;
+}
+
+.bs-step h3 {
+margin-bottom: 8px;
+color: #ff4fa3;
+font-size: 28px;
+font-weight: 800;
+}
+
+.bs-step p {
+color: #666;
+font-size: 19px;
+line-height: 1.6;
+}
+
+body.dark .bs-step p {
+color: #ddd;
+}
+
+.bs-progress {
+height: 6px;
+margin: 26px 0;
+border-radius: 6px;
+background: rgba(255, 79, 163, 0.18);
+overflow: hidden;
+}
+
+.bs-progress i {
+display: block;
+width: 100%;
+height: 100%;
+border-radius: 6px;
+background: #ff4fa3;
+}
+
+.bs-cta {
+padding: 16px 38px;
+border: none;
+border-radius: 50px;
+background: linear-gradient(135deg, #ff4fa3, #ff2f92);
+color: #fff;
+font-size: 18px;
+font-weight: 700;
+cursor: pointer;
+box-shadow: 0 10px 25px rgba(255, 79, 163, 0.35);
+}
+
+.bs-cta:disabled {
+cursor: default;
+}
+
+.bs-cta:focus-visible {
+outline: 3px solid #ff4fa3;
+outline-offset: 3px;
+}
+
+/* ---------- Scene ---------- */
+
+.bs-scene {
+position: relative;
+flex: 1;
+width: min(86vw, 420px);
+max-width: 420px;
+aspect-ratio: 400 / 460;
+will-change: transform;
+}
+
+.bs-svg,
+.bs-burger {
+position: absolute;
+inset: 0;
+width: 100%;
+height: 100%;
+}
+
+/* الطبقاتتنزلمنفوقحدودالـSVG */
+.bs-burger svg {
+overflow: visible;
+}
+
+.bs-z1 {
+z-index: 1;
+}
+
+.bs-z2 {
+z-index: 2;
+}
+
+.bs-z3 {
+z-index: 3;
+}
+
+.bs-z4 {
+z-index: 4;
+}
+
+/* ---------- نسخةتقليلالحركة ---------- */
+
+.bs-static {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 18px;
+padding: 70px 8%;
+text-align: center;
+background: linear-gradient(180deg, #fff5fa, #ffe6f1);
+}
+
+.bs-static .bs-heading {
+margin-bottom: 0;
+}
+
+.bs-static p {
+color: #666;
+font-size: 19px;
+}
+
+body.dark .bs-static {
+background: #0f172a;
+}
+
+body.dark .bs-static p {
+color: #ddd;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+  .bs {
+height: 380vh;
+  }
+
+  .bs-sticky {
+flex-direction: column-reverse;
+justify-content: center;
+gap: 10px;
+padding: 80px 20px 20px;
+  }
+
+  .bs-text {
+flex: none;
+width: 100%;
+max-width: 480px;
+text-align: center;
+  }
+
+  .bs-heading {
+margin-bottom: 14px;
+font-size: 26px;
+  }
+
+  .bs-step {
+min-height: 84px;
+  }
+
+  .bs-step h3 {
+font-size: 22px;
+  }
+
+  .bs-step p {
+font-size: 16px;
+  }
+
+  .bs-progress {
+margin: 14px 0;
+  }
+
+  .bs-cta {
+width: 100%;
+padding: 14px;
+font-size: 17px;
+  }
+
+  .bs-scene {
+flex: none;
+width: min(78vw, calc(40svh * 0.87));
+  }
+}
+
+
+
