@@ -149,31 +149,34 @@ JSON.stringify(cartItems)
 );
 
 
+const token = localStorage.getItem("token");
+
 fetch("https://restaurant-app-production-0924.up.railway.app/api/orders", {
 method: "POST",
+headers: { Authorization: `Bearer ${token}` },
 body: formData,
 })
   .then((res) =>res.json())
   .then((data) => {
-    console.log(data);
+if (!data.success) {
+alert(data.message || "Something went wrong");
+return;
+    }
+
 alert("Order Placed Successfully");
 
 setCartItems([]);
 
-
-
-navigate("/success",{
-  state:{
-    orderId:data.orderId
-  }
-  });
-  
+navigate("/success", {
+state: {
+orderId: data.orderId,
+      },
+    });
   })
-  
-.catch((err) => {
+  .catch((err) => {
 console.log(err);
 alert("Error");
-});
+  });
 
 
   };

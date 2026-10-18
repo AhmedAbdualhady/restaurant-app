@@ -97,7 +97,7 @@ rect
 
 setTimeout(()=>{
 
-setCartItems([...cartItems,item]);
+setCartItems((prev) => [...prev, item]);
 
 setNotification(`✅ Added ${item.name} to cart`);
 

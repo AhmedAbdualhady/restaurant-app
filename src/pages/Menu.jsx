@@ -104,7 +104,7 @@ rect
 
 setTimeout(()=>{
 
-setCartItems([...cartItems,food]);
+setCartItems((prev) => [...prev, food]);
 
 setMessage(`✅ Added ${food.name} to cart`);
 

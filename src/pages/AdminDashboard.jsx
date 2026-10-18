@@ -38,25 +38,23 @@ useState([]);
 const [totalUsers, setTotalUsers] = useState(0);
 
 
+const token = localStorage.getItem("token");
+
+
 
 
 useEffect(() => {
 
 const fetchOrders = () => {
 
-fetch(
-"https://restaurant-app-production-0924.up.railway.app/api/orders"
-)
-
-.then((res)=>res.json())
-
-.then((data)=>{
-
-setOrders(data);
-
+fetch("https://restaurant-app-production-0924.up.railway.app/api/orders", {
+headers: { Authorization: `Bearer ${token}` },
 })
-
-.catch(err =>console.error(err));
+  .then((res) =>res.json())
+  .then((data) => {
+setOrders(Array.isArray(data) ? data : []);
+  })
+  .catch((err) =>console.error(err));
 
 
 fetch("https://restaurant-app-production-0924.up.railway.app/api/users/count")
@@ -94,8 +92,9 @@ const res = await fetch(
 
 method:"PUT",
 
-headers:{
-"Content-Type":"application/json"
+headers: {
+  "Content-Type": "application/json",
+Authorization: `Bearer ${token}`,
 },
 
 body:JSON.stringify({
